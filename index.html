@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Club — Short-Form Content Agency for Music Artists</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            card: '#1a1a1a',
+                            accent: '#10b981', // Electric Green
+                            accentHover: '#059669',
+                            border: '#2a2a2a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    },
+                    animation: {
+                        marquee: 'marquee 30s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-noise {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Pausa suave al pasar el mouse */
+        .marquee-container:hover .marquee-wrapper {
+            animation-play-state: paused;
+        }
+
+        /* Ocultar barra de scroll en el carrusel */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-brand-black text-white font-sans antialiased selection:bg-brand-accent selection:text-black bg-noise relative">
+
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- LOGO FRAME CLUB -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-brand-accent group-hover:scale-105 transition duration-300" viewBox="0 0 500 500" width="100%" height="100%">
+                    <!-- FRAMECLUB - Modular F Isotype -->
+                    <g fill="#10b981" stroke="none">
+                        <!-- Barra vertical izquierda -->
+                        <rect x="130" y="110" width="80" height="280" />
+
+                        <!-- Barra horizontal superior derecha -->
+                        <rect x="230" y="110" width="140" height="80" />
+
+                        <!-- Barra vertical inferior derecha -->
+                        <rect x="230" y="210" width="80" height="180" />
+                    </g>
+                </svg>
+
+                <span class="text-xl font-bold tracking-tighter text-white">
+                    Frame<span class="text-brand-accent">Club</span>
+                </span>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-400">
+                <a href="#artistas" class="hover:text-white transition">Artistas</a>
+                <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
+                <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+                <a href="#planes" class="hover:text-white transition">Planes</a>
+                <a href="#contacto" class="hover:text-white transition">Contacto</a>
+            </nav>
+
+            <a href="#contacto"
+                class="bg-white text-black font-bold px-5 py-2.5 rounded-full text-sm hover:bg-brand-accent transition transform hover:scale-105">
+                Trabajemos juntos
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+        class="min-h-screen pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col justify-center relative overflow-hidden">
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-accent/10 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 z-10">
+                <span
+                    class="inline-block text-xs font-bold tracking-widest text-brand-accent uppercase mb-4 bg-brand-accent/10 px-3 py-1 rounded-full border border-brand-accent/20">Short-form
+                    Content Studio</span>
+                <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6">
+                    Vos grabás.<br>
+                    Nosotros lo convertimos en <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-brand-accent">contenido.</span>
+                </h1>
+                <p class="text-neutral-400 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
+                    Transformamos tu música, videos, sesiones y momentos en contenido short-form listo para publicar.
+                </p>
+
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="#planes"
+                        class="bg-brand-accent text-black font-bold px-8 py-4 rounded-full hover:bg-brand-accentHover transition transform hover:scale-105 flex items-center gap-2">
+                        Ver planes <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#portfolio"
+                        class="border border-brand-border bg-brand-card/50 text-white font-semibold px-8 py-4 rounded-full hover:border-white transition">
+                        Ver trabajos
+                    </a>
+                </div>
+
+                <div
+                    class="mt-12 flex items-center gap-6 text-neutral-500 text-xs font-semibold tracking-widest uppercase">
+                    <span class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                            class="w-4 h-4 text-brand-accent"></i> TIKTOK</span>
+                    <span class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                            class="w-4 h-4 text-brand-accent"></i> REELS</span>
+                    <span class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                            class="w-4 h-4 text-brand-accent"></i> SHORTS</span>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <div
+                    class="relative w-full max-w-sm aspect-[9/16] bg-brand-card rounded-3xl border border-brand-border overflow-hidden shadow-2xl group hover:border-brand-accent/50 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+                        alt="Video Content Preview"
+                        class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700">
+
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-between p-6">
+                        <div class="flex justify-between items-center">
+                            <span
+                                class="bg-black/60 backdrop-blur-md text-xs px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span> READY TO POST
+                            </span>
+                            <i data-lucide="music" class="w-5 h-5 text-white/80"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold mb-1">Studio Session Snippet #04</p>
+                            <p class="text-xs text-neutral-400">Audio original • Frame Club Studio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -left-6 bg-brand-black/90 backdrop-blur-md border border-brand-border p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-bounce"
+                    style="animation-duration: 4s;">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold">Alto Volumen</p>
+                        <p class="text-[10px] text-neutral-400">Listo para escalar redes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ARTISTAS - BUCLE INFINITO CONTINUO -->
+    <section id="artistas" class="py-16 border-y border-brand-border bg-brand-dark/50 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 mb-8 text-center md:text-left">
+            <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">ejemplos</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold mt-1">Artistas que confían en nosotros</h2>
+        </div>
+
+        <div
+            class="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-brand-black to-transparent z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-brand-black to-transparent z-10 pointer-events-none">
+        </div>
+
+        <div class="marquee-container flex overflow-hidden w-full">
+            <div class="marquee-wrapper flex animate-marquee">
+
+                <!-- GRUPO 1 -->
+                <div class="flex gap-6 shrink-0 pr-6 items-center">
+                    <a href="https://open.spotify.com/intl-es/artist/5wkxQh0fD5bsqxKm6Ajv7o?si=H4snxSzhT8GBbFDzx1iCIw"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466446/channels4_profile.jpg"
+                            alt="Santi V"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Ara
+                                Youngboy</h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/2DB4gqzMQy1kvcHWgrNUgp?si=cfiz4lPKTs2L_o8Bpy3wPw"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466885/ab6761610000e5eb89ea45dfc2d10a36a9687d25.jpg"
+                            alt="Milo G"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">One Flyt
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/0AQym39jmsVTiggRZdyiSW?si=6f218c1a41b04b07"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466885/channels4_profile_2.jpg"
+                            alt="Luna"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Valuto
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/7b0pdDyPV9f9hyDXAhk4Sg?si=pG9pD6WpTQWgoLypp4E7YQ"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466884/images.jpg" alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Ramma</h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/2vp74lsZgRpyFtcilmWwYT?si=5ec8e033d775480e"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467405/WhatsApp_Image_2026-08-23_at_3.42.38_AM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Lil Tivi
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/3MQzgI7KGzIurhJE8En0uE?si=2nIMM-FVQ7ubHNZjOSy68w"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467405/WhatsApp_Image_2026-08-23_at_3.42.37_AM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Binaguii
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/4XzH3TrHgkusM9yEGpeNkW?si=DBoTylYXS0Sv0dq42zOw_g"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467404/WhatsApp_Image_2026-08-23_at_3.42.38_adasAM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Neo</h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- GRUPO 2 (COPIA IDÉNTICA PARA EMPALME) -->
+                <div class="flex gap-6 shrink-0 pr-6 items-center">
+                    <a href="https://open.spotify.com/intl-es/artist/5wkxQh0fD5bsqxKm6Ajv7o?si=H4snxSzhT8GBbFDzx1iCIw"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466446/channels4_profile.jpg"
+                            alt="Santi V"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Ara
+                                Youngboy</h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/2DB4gqzMQy1kvcHWgrNUgp?si=cfiz4lPKTs2L_o8Bpy3wPw"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466885/ab6761610000e5eb89ea45dfc2d10a36a9687d25.jpg"
+                            alt="Milo G"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">One Flyt
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/0AQym39jmsVTiggRZdyiSW?si=6f218c1a41b04b07"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466885/channels4_profile_2.jpg"
+                            alt="Luna"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Valuto
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/7b0pdDyPV9f9hyDXAhk4Sg?si=pG9pD6WpTQWgoLypp4E7YQ"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787466884/images.jpg" alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Ramma</h4>
+                            <p class="text-[11px] text-neutral-400">Argentina</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/2vp74lsZgRpyFtcilmWwYT?si=5ec8e033d775480e"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467405/WhatsApp_Image_2026-08-23_at_3.42.38_AM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Lil Tivi
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/3MQzgI7KGzIurhJE8En0uE?si=2nIMM-FVQ7ubHNZjOSy68w"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467405/WhatsApp_Image_2026-08-23_at_3.42.37_AM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Binaguii
+                            </h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+
+                    <a href="https://open.spotify.com/intl-es/artist/4XzH3TrHgkusM9yEGpeNkW?si=DBoTylYXS0Sv0dq42zOw_g"
+                        target="_blank" rel="noopener noreferrer"
+                        class="group bg-brand-card/60 hover:bg-brand-card border border-brand-border hover:border-brand-accent/50 p-3 pr-6 rounded-full flex items-center gap-4 transition duration-300 transform hover:scale-105">
+                        <img src="https://res.cloudinary.com/tlhwauhk/image/upload/v1787467404/WhatsApp_Image_2026-08-23_at_3.42.38_adasAM.jpg"
+                            alt="Fran B"
+                            class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition">
+                        <div>
+                            <h4 class="font-bold text-sm text-white group-hover:text-brand-accent transition">Neo</h4>
+                            <p class="text-[11px] text-neutral-400">Uruguay</p>
+                        </div>
+                        <i data-lucide="external-link"
+                            class="w-4 h-4 text-neutral-500 group-hover:text-brand-accent transition ml-2"></i>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">PROBLEMA</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-12">Tu música necesita contenido constante.</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div class="bg-brand-card p-8 rounded-3xl border border-brand-border flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-neutral-400">Tenés todo esto guardado:</h3>
+                    <ul class="space-y-3 text-neutral-300">
+                        <li class="flex items-center gap-3"><i data-lucide="folder"
+                                class="w-5 h-5 text-neutral-500"></i> Videos sueltos en el celular</li>
+                        <li class="flex items-center gap-3"><i data-lucide="mic" class="w-5 h-5 text-neutral-500"></i>
+                            Horas de grabación en el estudio</li>
+                        <li class="flex items-center gap-3"><i data-lucide="tv" class="w-5 h-5 text-neutral-500"></i>
+                            Entrevistas y presentaciones en vivo</li>
+                        <li class="flex items-center gap-3"><i data-lucide="camera"
+                                class="w-5 h-5 text-neutral-500"></i> Momentos espontáneos del día a día</li>
+                    </ul>
+                </div>
+                <div class="mt-8 p-4 bg-black/40 rounded-xl border border-white/5 text-sm text-neutral-500">
+                    RAW MATERIAL (Sin aprovechar)
+                </div>
+            </div>
+
+            <div
+                class="bg-gradient-to-br from-brand-card to-brand-card/30 p-8 rounded-3xl border border-brand-accent/30 flex flex-col justify-between relative overflow-hidden">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-brand-accent">Pero no tenés tiempo para editar.</h3>
+                    <p class="text-neutral-300 leading-relaxed mb-6">
+                        El algoritmo exige publicar seguido, pero estar horas cortando videos te saca tiempo de lo más
+                        importante: hacer música.
+                    </p>
+                </div>
+                <div
+                    class="mt-8 p-4 bg-brand-accent/10 rounded-xl border border-brand-accent/20 flex items-center justify-between text-brand-accent font-bold text-sm">
+                    <span>CONTENIDO LISTO PARA SUBIR</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / What We Do -->
+    <section class="py-24 px-6 max-w-7xl mx-auto border-t border-brand-border">
+        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">SOLUCIÓN</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-12">Convertimos lo que ya tenés en contenido.</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="disc" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Music Videos</h4>
+                <p class="text-xs text-neutral-400">Recortes con ritmo y dinamismo.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="sliders" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Studio Sessions</h4>
+                <p class="text-xs text-neutral-400">El proceso creativo que conecta.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="flame" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Performances</h4>
+                <p class="text-xs text-neutral-400">La energía de tus shows en vivo.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="message-square" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Interviews</h4>
+                <p class="text-xs text-neutral-400">Frases clave y ganchos de voz.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="user" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">POV Videos</h4>
+                <p class="text-xs text-neutral-400">Formatos directos a cámara.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="book-open" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Storytelling</h4>
+                <p class="text-xs text-neutral-400">La historia detrás de la canción.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="type" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Lyrics & Visuals</h4>
+                <p class="text-xs text-neutral-400">Tipografía animada y estética.</p>
+            </div>
+            <div
+                class="bg-brand-card p-6 rounded-2xl border border-brand-border hover:border-brand-accent/40 transition">
+                <i data-lucide="smartphone" class="w-8 h-8 text-brand-accent mb-4"></i>
+                <h4 class="font-bold mb-1">Motion Graphics</h4>
+                <p class="text-xs text-neutral-400">Contenido con una edicion animada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="como-funciona" class="py-24 px-6 max-w-7xl mx-auto border-t border-brand-border">
+        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">PROCESO</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-16">Cómo funciona</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+            <div class="bg-brand-card/40 p-8 rounded-3xl border border-brand-border relative">
+                <span class="text-6xl font-black text-brand-accent/30 absolute top-6 right-6">01</span>
+                <h3 class="text-2xl font-bold mb-4">Vos grabás</h3>
+                <p class="text-neutral-400 leading-relaxed text-sm">
+                    Mandanos tus videos, música, sesiones, entrevistas o cualquier material que tengas en la nube o el
+                    celular.
+                </p>
+            </div>
+
+            <div class="bg-brand-card/40 p-8 rounded-3xl border border-brand-border relative">
+                <span class="text-6xl font-black text-brand-accent/30 absolute top-6 right-6">02</span>
+                <h3 class="text-2xl font-bold mb-4">Nosotros editamos</h3>
+                <p class="text-neutral-400 leading-relaxed text-sm">
+                    Seleccionamos y transformamos el material en contenido optimizado con ritmos, subtítulos y formatos
+                    de tendencia.
+                </p>
+            </div>
+
+            <div class="bg-brand-card/40 p-8 rounded-3xl border border-brand-border relative">
+                <span class="text-6xl font-black text-brand-accent/30 absolute top-6 right-6">03</span>
+                <h3 class="text-2xl font-bold mb-4">Publicás</h3>
+                <p class="text-neutral-400 leading-relaxed text-sm">
+                    Recibís videos verticales listos para subir directamente a TikTok, Instagram Reels y YouTube Shorts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO WITH IFRAME EMBEDDED PLAYERS & BADGES -->
+    <section id="portfolio" class="py-24 px-6 max-w-7xl mx-auto border-t border-brand-border">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+            <div>
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">PORTFOLIO</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Trabajos recientes</h2>
+                <p class="text-neutral-400 text-sm mt-2">Reproducí directamente desde los reproductores.</p>
+            </div>
+
+            <!-- Controles del Slider (Flechas) -->
+            <div class="flex items-center gap-3 mt-4 md:mt-0">
+                <button id="prevBtn"
+                    class="p-3 bg-brand-card border border-brand-border rounded-full hover:border-brand-accent hover:text-brand-accent transition cursor-pointer">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="nextBtn"
+                    class="p-3 bg-brand-card border border-brand-border rounded-full hover:border-brand-accent hover:text-brand-accent transition cursor-pointer">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Track (Desplazamiento Horizontal) -->
+        <div id="portfolioSlider"
+            class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar pb-6">
+
+            <!-- VIDEO ITEM 1 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Lyrics Simple
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=ara_no_tiene_tanto-3"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 2 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Motion Graphics
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=one_2"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 3 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Live Performance
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7576060267738483979_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 4 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Live Session
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7583112269957991698_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 5 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Unreleased Snippet
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7584966987206364427_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 6 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Advanced Lyrics
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7661041199582563602_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 7 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Movie Edit
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7641743168966380807_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 7 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Stream Clip
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7575943027915590923_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- VIDEO ITEM 8 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Stream Acoustic
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7492194386575412535_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+
+            <!-- VIDEO ITEM 7 -->
+            <div
+                class="snap-start shrink-0 w-[260px] md:w-[300px] aspect-[9/16] bg-brand-card rounded-3xl overflow-hidden border border-brand-border hover:border-brand-accent/60 transition-all duration-300 relative shadow-xl">
+                <!-- Tag de Categoría -->
+                <div
+                    class="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase text-brand-accent flex items-center gap-1.5 pointer-events-none">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                    Loop Lyrics
+                </div>
+
+                <iframe src="https://player.cloudinary.com/embed/?cloud_name=tlhwauhk&public_id=7571606487466888460_HD"
+                    class="w-full h-full border-0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planes" class="py-24 px-6 max-w-7xl mx-auto border-t border-brand-border">
+        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">PLANES</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-4">Contenido constante, sin complicarte.</h2>
+        <p class="text-neutral-400 text-sm mb-16">Elegís el volumen, nos mandás el material y nosotros nos encargamos
+            del resto.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="bg-brand-card p-8 rounded-3xl border border-brand-border flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">STARTER</h3>
+                    <p class="text-neutral-400 text-sm mb-6">Para artistas que quieren empezar a crear presencia
+                        constante.</p>
+                    <div class="text-4xl font-black mb-6">USD 40 <span class="text-sm font-normal text-neutral-500">/
+                            pack</span></div>
+                    <ul class="space-y-3 text-sm text-neutral-300 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> 10 Videos cortos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Edición dinámica + Subtítulos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Optimizado para TikTok/Reels</li>
+                    </ul>
+                </div>
+                <a href="#contacto"
+                    class="w-full text-center border border-white/20 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">Empezar</a>
+            </div>
+
+            <div
+                class="bg-brand-card p-8 rounded-3xl border-2 border-brand-accent flex flex-col justify-between relative shadow-[0_0_50px_rgba(16,185,129,0.15)]">
+                <span
+                    class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-black text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider">Recomendado</span>
+                <div>
+                    <h3 class="text-xl font-bold mb-2 text-brand-accent">GROWTH</h3>
+                    <p class="text-neutral-400 text-sm mb-6">Para mantener una presencia activa durante todo el mes.</p>
+                    <div class="text-4xl font-black mb-6">USD 75 <span class="text-sm font-normal text-neutral-500">/
+                            pack</span></div>
+                    <ul class="space-y-3 text-sm text-neutral-300 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> 20 Videos cortos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Edición + Formatos de tendencia</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Portadas e ganchos visuales</li>
+                    </ul>
+                </div>
+                <a href="#contacto"
+                    class="w-full text-center bg-brand-accent text-black py-3 rounded-full font-bold hover:bg-brand-accentHover transition">Elegir
+                    Growth</a>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-3xl border border-brand-border flex flex-col justify-between">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">PRO</h3>
+                    <p class="text-neutral-400 text-sm mb-6">Para lanzamientos grandes o alto volumen de contenido.</p>
+                    <div class="text-4xl font-black mb-6">USD 110 <span class="text-sm font-normal text-neutral-500">/
+                            pack</span></div>
+                    <ul class="space-y-3 text-sm text-neutral-300 mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> 30 Videos cortos</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Prioridad en entrega</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check"
+                                class="w-4 h-4 text-brand-accent"></i> Variaciones para A/B Testing</li>
+                    </ul>
+                </div>
+                <a href="#contacto"
+                    class="w-full text-center border border-white/20 py-3 rounded-full font-bold hover:bg-white hover:text-black transition">Elegir
+                    Pro</a>
+            </div>
+        </div>
+        <p class="text-center text-xs text-neutral-500 mt-8">* El artista proporciona el material bruto. El servicio se
+            enfoca en la edición y transformación del mismo.</p>
+    </section>
+
+    <!-- Why Work With Us -->
+    <section class="py-24 px-6 max-w-7xl mx-auto border-t border-brand-border">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">FILOSOFÍA</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2 mb-6">No hacemos contenido porque sí.</h2>
+                <p class="text-neutral-400 leading-relaxed mb-6">
+                    No prometemos viralidad mágica de la noche a la mañana. Enfocamos nuestro trabajo en la <span
+                        class="text-white font-semibold">consistencia</span>, la <span
+                        class="text-white font-semibold">experimentación</span> y en darte múltiples oportunidades para
+                    que tu música conecte con la audiencia correcta.
+                </p>
+                <div class="flex items-center gap-2 text-brand-accent font-mono text-sm tracking-widest">
+                    CREAR → PUBLICAR → ANALIZAR → REPETIR
+                </div>
+            </div>
+            <div class="bg-brand-card border border-brand-border p-8 rounded-3xl">
+                <div class="text-4xl font-black text-brand-accent mb-2">+10 millones</div>
+                <p class="text-neutral-400 text-sm mb-6">Reproducciones generadas orgánicamente a través de recortes de
+                    contenido.</p>
+                <hr class="border-brand-border mb-6">
+                <p class="text-xs text-neutral-500 uppercase tracking-widest">Enfocado en artistas independientes de
+                    Uruguay y Argentina.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="contacto"
+        class="py-32 px-6 max-w-7xl mx-auto border-t border-brand-border text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
+
+        <h2 class="text-4xl md:text-6xl font-black max-w-3xl mx-auto leading-tight mb-6">
+            Tu próximo tema puede convertirse en mucho más que un solo video.
+        </h2>
+        <p class="text-neutral-400 text-lg max-w-xl mx-auto mb-8">
+            Vos ponés la música y el material. Nosotros nos encargamos del contenido.
+        </p>
+        <a href="mailto:contacto@frameclub.com"
+            class="inline-block bg-brand-accent text-black font-extrabold text-lg px-10 py-5 rounded-full hover:bg-brand-accentHover transition transform hover:scale-105">
+            Trabajemos juntos
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-brand-border text-center text-xs text-neutral-600">
+        <p>© 2026 Frame Club Studio. Montevideo — Buenos Aires.</p>
+    </footer>
+
+    <!-- Script Controles Slider -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            const slider = document.getElementById('portfolioSlider');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (slider && prevBtn && nextBtn) {
+                const getScrollStep = () => {
+                    const firstCard = slider.querySelector('.snap-start');
+                    if (!firstCard) return 300;
+                    const cardWidth = firstCard.offsetWidth;
+                    const gap = 24; // Corresponde al gap-6 de Tailwind
+                    return cardWidth + gap;
+                };
+
+                nextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    slider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                });
+
+                prevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    slider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
