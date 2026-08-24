@@ -46,7 +46,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        html {
+        .html {
             scroll-behavior: smooth;
         }
 
@@ -80,24 +80,22 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
             <!-- LOGO FRAME CLUB -->
-            <a href="#" class="flex items-center gap-2.5 group">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-brand-accent group-hover:scale-105 transition duration-300" viewBox="0 0 500 500" width="100%" height="100%">
-                    <!-- FRAMECLUB - Modular F Isotype -->
-                    <g fill="#10b981" stroke="none">
-                        <!-- Barra vertical izquierda -->
+            <a href="../../index.html" class="inline-flex items-center gap-3 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand-accent group-hover:scale-105 transition duration-300" viewBox="0 0 500 500">
+                    <g fill="currentColor" stroke="none">
                         <rect x="130" y="110" width="80" height="280" />
-
-                        <!-- Barra horizontal superior derecha -->
                         <rect x="230" y="110" width="140" height="80" />
-
-                        <!-- Barra vertical inferior derecha -->
                         <rect x="230" y="210" width="80" height="180" />
                     </g>
                 </svg>
-
-                <span class="text-xl font-bold tracking-tighter text-white">
-                    Frame<span class="text-brand-accent">Club</span>
-                </span>
+                <div>
+                    <span class="block text-xl font-black tracking-tight text-white">
+                        Frame<span class="text-brand-accent">Club</span>
+                    </span>
+                    <span class="block text-[9px] text-neutral-500 uppercase tracking-[0.2em]">
+                        Studio
+                    </span>
+                </div>
             </a>
 
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-400">
@@ -564,7 +562,7 @@
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
             <div>
                 <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">PORTFOLIO</span>
-                <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Trabajos recientes</h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-2">Trabajos</h2>
                 <p class="text-neutral-400 text-sm mt-2">Reproducí directamente desde los reproductores.</p>
             </div>
 
@@ -793,7 +791,7 @@
                         <li class="flex items-center gap-2"><i data-lucide="check"
                                 class="w-4 h-4 text-brand-accent"></i> Edición + Formatos de tendencia</li>
                         <li class="flex items-center gap-2"><i data-lucide="check"
-                                class="w-4 h-4 text-brand-accent"></i> Portadas e ganchos visuales</li>
+                                class="w-4 h-4 text-brand-accent"></i> Portadas y ganchos visuales</li>
                     </ul>
                 </div>
                 <a href="#contacto"
@@ -821,6 +819,12 @@
                     Pro</a>
             </div>
         </div>
+
+        <div class="w-full h-full flex items-center justify-center mt-6">
+                <a href="assets/webs/precios.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-accent bg-brand-accent/10 border border-brand-accent/30 px-5 py-2.5 rounded-full hover:bg-brand-accent/20 transition">
+                    <i data-lucide="tag" class="w-4 h-4"></i> ¿Buscás precios individuales o por pieza? Ver acá
+                </a>
+            </div>
         <p class="text-center text-xs text-neutral-500 mt-8">* El artista proporciona el material bruto. El servicio se
             enfoca en la edición y transformación del mismo.</p>
     </section>
@@ -1103,12 +1107,16 @@
 
                 <div class="flex items-center gap-6 text-xs text-neutral-600">
 
-                    <a href="#" class="hover:text-neutral-300 transition">
+                    <a href="assets/webs/terms.html" class="hover:text-neutral-300 transition">
                         Términos y condiciones
                     </a>
 
-                    <a href="#" class="hover:text-neutral-300 transition">
+                    <a href="assets/webs/privacidad.html" class="hover:text-neutral-300 transition">
                         Privacidad
+                    </a>
+
+                    <a href="assets/webs/servicios.html" class="hover:text-neutral-300 transition">
+                        Servicios
                     </a>
 
                 </div>
