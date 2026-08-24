@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - FrameClub Studio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            accent: '#10b981',
+                            border: '#27272a',
+                            card: '#18181b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-brand-accent selection:text-neutral-950">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 border-b border-brand-border bg-neutral-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="../../index.html" class="inline-flex items-center gap-3 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand-accent group-hover:scale-105 transition duration-300" viewBox="0 0 500 500">
+                    <g fill="currentColor" stroke="none">
+                        <rect x="130" y="110" width="80" height="280" />
+                        <rect x="230" y="110" width="140" height="80" />
+                        <rect x="230" y="210" width="80" height="180" />
+                    </g>
+                </svg>
+                <div>
+                    <span class="block text-xl font-black tracking-tight text-white">
+                        Frame<span class="text-brand-accent">Club</span>
+                    </span>
+                    <span class="block text-[9px] text-neutral-500 uppercase tracking-[0.2em]">
+                        Studio
+                    </span>
+                </div>
+            </a>
+
+            <!-- Volver al inicio -->
+            <a href="../../index.html" class="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-brand-accent transition">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                Volver al inicio
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: SERVICIOS -->
+    <main class="relative overflow-hidden py-20">
+        <!-- Glows de fondo idénticos al index -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute left-1/2 -translate-x-1/2 top-20 w-[600px] h-[400px] bg-brand-accent/5 blur-[160px] rounded-full"></div>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto px-6">
+            <!-- Título de sección -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-brand-accent uppercase tracking-widest block mb-3">Lo que hacemos</span>
+                <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
+                    Nuestros Servicios
+                </h1>
+                <p class="text-neutral-400 text-sm leading-relaxed">
+                    Soluciones audiovisuales diseñadas a medida para músicos y creadores que buscan destacar en el mundo del contenido short-form.
+                </p>
+            </div>
+
+            <!-- Grid de Servicios -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Servicio 1 -->
+                <div class="bg-brand-card/40 border border-brand-border p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/50 transition duration-300 group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
+                            <i data-lucide="video" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-lg font-bold text-white mb-3">Edición Short-Form</h2>
+                        <p class="text-neutral-400 text-sm leading-relaxed">
+                            Transformamos tus transmisiones, videoclips o entrevistas largas en cortes dinámicos y atrapantes para TikTok, Reels y Shorts con subtítulos animados.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-brand-border/60 flex items-center justify-between text-xs text-neutral-400">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Alta retención</span>
+                        <span class="text-brand-accent font-medium">Popular</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-brand-card/40 border border-brand-border p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/50 transition duration-300 group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
+                            <i data-lucide="music" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-lg font-bold text-white mb-3">Campañas para Lanzamientos</h2>
+                        <p class="text-neutral-400 text-sm leading-relaxed">
+                            Estrategias de contenido intensivo previas y posteriores al estreno de tu nuevo tema o álbum para generar expectativa viral en redes.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-brand-border/60 flex items-center justify-between text-xs text-neutral-400">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Enfoque musical</span>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-brand-card/40 border border-brand-border p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/50 transition duration-300 group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-lg font-bold text-white mb-3">Curaduría y Dirección</h2>
+                        <p class="text-neutral-400 text-sm leading-relaxed">
+                            Analizamos tu perfil actual y diseñamos un plan de publicaciones constante para estructurar tu marca personal como artista.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-brand-border/60 flex items-center justify-between text-xs text-neutral-400">
+                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Asesoría 1 a 1</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA Interno de Servicios -->
+            <div class="mt-16 bg-brand-card/60 border border-brand-border p-8 md:p-12 rounded-3xl text-center relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-accent/10 blur-[100px] rounded-full pointer-events-none"></div>
+                <h3 class="text-2xl font-black text-white mb-4">¿Querés potenciar tu proyecto musical?</h3>
+                <p class="text-neutral-400 text-sm max-w-xl mx-auto mb-8">
+                    Escribinos directamente por WhatsApp y armamos un paquete de contenido adaptado a tus necesidades y objetivos.
+                </p>
+                <a href="https://api.whatsapp.com/send?phone=+59892662395&text=%C2%A1Hola!%20Estoy%20interesado%20en%20contratar%20sus%20servicios%20para%20potenciar%20mis%20redes%20con%20contenido%20short-form.%20%C2%BFC%C3%B3mo%20avanzamos?" 
+                   target="_blank"
+                   class="inline-flex items-center gap-2 bg-brand-accent text-neutral-950 font-bold px-8 py-4 rounded-full hover:bg-emerald-400 transition shadow-lg shadow-brand-accent/20">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    Consultar por WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER ACTUALIZADO -->
+    <footer class="relative border-t border-brand-border overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -right-40 top-0 w-[500px] h-[400px] bg-brand-accent/10 blur-[140px] rounded-full"></div>
+            <div class="absolute -left-40 bottom-0 w-[400px] h-[300px] bg-emerald-500/5 blur-[120px] rounded-full"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+                <!-- BRAND -->
+                <div class="md:col-span-6 lg:col-span-6">
+                    <a href="../../index.html" class="inline-flex items-center gap-3 group mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-brand-accent group-hover:scale-105 transition duration-300" viewBox="0 0 500 500">
+                            <g fill="currentColor" stroke="none">
+                                <rect x="130" y="110" width="80" height="280" />
+                                <rect x="230" y="110" width="140" height="80" />
+                                <rect x="230" y="210" width="80" height="180" />
+                            </g>
+                        </svg>
+                        <div>
+                            <span class="block text-2xl font-black tracking-tight text-white">
+                                Frame<span class="text-brand-accent">Club</span>
+                            </span>
+                            <span class="block text-[10px] text-neutral-500 uppercase tracking-[0.25em] mt-1">
+                                Short-form content studio
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-md">
+                        Convertimos música, videos y momentos en contenido short-form pensado para artistas que quieren construir una presencia constante en redes.
+                    </p>
+                </div>
+
+                <!-- NAVIGATION -->
+                <div class="md:col-span-3 lg:col-span-3">
+                    <h3 class="text-sm font-bold text-white mb-6">Navegación</h3>
+                    <nav class="space-y-4 text-sm">
+                        <a href="../../index.html" class="flex items-center gap-3 text-neutral-400 hover:text-brand-accent transition">
+                            <i data-lucide="home" class="w-4 h-4"></i> Inicio
+                        </a>
+                        <a href="../../index.html#artistas" class="flex items-center gap-3 text-neutral-400 hover:text-brand-accent transition">
+                            <i data-lucide="users" class="w-4 h-4"></i> Artistas
+                        </a>
+                        <a href="../../index.html#como-funciona" class="flex items-center gap-3 text-neutral-400 hover:text-brand-accent transition">
+                            <i data-lucide="workflow" class="w-4 h-4"></i> Cómo funciona
+                        </a>
+                        <a href="../../index.html#planes" class="flex items-center gap-3 text-neutral-400 hover:text-brand-accent transition">
+                            <i data-lucide="credit-card" class="w-4 h-4"></i> Planes
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="md:col-span-3 lg:col-span-3">
+                    <h3 class="text-sm font-bold text-white mb-6">Contacto</h3>
+                    <div class="space-y-5">
+                        <a href="mailto:frameclub.studio@gmail.com" class="flex items-center gap-4 group">
+                            <div class="w-10 h-10 rounded-full border border-brand-border bg-brand-card flex items-center justify-center group-hover:border-brand-accent transition">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-accent"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-neutral-500 uppercase tracking-widest mb-1">Email</p>
+                                <p class="text-sm text-neutral-300 group-hover:text-white transition">frameclub.studio@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="border-t border-brand-border mt-16 pt-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-xs text-neutral-600">
+                        © 2026 Frame Club Studio. Todos los derechos reservados.
+                    </p>
+                    <div class="flex items-center gap-6 text-xs text-neutral-600">
+                        <a href="terms.html" class="hover:text-neutral-300 transition">Términos y condiciones</a>
+                        <a href="#" class="hover:text-neutral-300 transition">Privacidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inicializar Iconos Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
